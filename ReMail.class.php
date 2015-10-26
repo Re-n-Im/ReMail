@@ -34,6 +34,18 @@ class ReMail
 	
 	// Private methods
 	
+	private function checkEMails( )
+	{
+		$tempArr = array( );
+		
+		foreach( $this->aEMails as $em )
+		{
+			$tempArr = array_merge( $tempArr , $em );
+		}
+		
+		return !!count( $tempArr );
+	}
+	
 	private function setContentType( $ct )
 	{
 		if( $ct == 'mixed' )
@@ -220,18 +232,6 @@ class ReMail
 	public function setSubject( $subj )
 	{
 		$this->setHeader( 'Subject' , $subj );
-	}
-	
-	public function checkEMails( )
-	{
-		$tempArr = array( );
-		
-		foreach( $this->aEMails as $em )
-		{
-			$tempArr = array_merge( $tempArr , $em );
-		}
-		
-		return !!count( $tempArr );
 	}
 	
 	public function send( )
