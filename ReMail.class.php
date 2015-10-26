@@ -138,7 +138,7 @@ class ReMail
 	
 	// Public methods
 	
-	public function addAttachments( $atta , $type = 'attachment' )
+	public function addAttachment( $atta , $type = 'attachment' )
 	{
 		if( is_string( $atta ) )
 		{
@@ -183,7 +183,7 @@ class ReMail
 			{
 				$fname = basename( $mm[ 2 ] );
 				$imageSrc = 'cid:'.count( $this->aAttachments ).'__='.preg_replace( '/\s+/mui' , '' , $fname ).'@local';
-				$this->addAttachments( $mm[ 2 ] , 'inline' );
+				$this->addAttachment( $mm[ 2 ] , 'inline' );
 				
 				$txt = str_replace( $mm[ 0 ] , '<br />'.$mm[ 1 ].$imageSrc.$mm[ 3 ].'<br />' , $txt );
 			}
